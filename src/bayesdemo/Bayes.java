@@ -91,7 +91,7 @@ public final class Bayes {
 		}
 	}
 	
-	public static void test2(String reduredFilePath) throws IOException{
+	public static void buildMap(String reduredFilePath) throws IOException{
         String line=null;
         
         Configuration conf=new Configuration();

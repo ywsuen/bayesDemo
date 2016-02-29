@@ -41,7 +41,7 @@ public class RunBayes {
 		 inputTestDataFilePath=args[2];
 		 outputTestDataResultPath=args[3];
 		 
-		/*Job trainingJob = new Job(conf, "training bayes classifier");
+		Job trainingJob = new Job(conf, "training bayes classifier");
 		trainingJob.setJarByClass(Bayes.class);
 		trainingJob.setMapperClass(Bayes.TrainingBayesMapper.class);
 		trainingJob.setCombinerClass(Bayes.TrainingBayesReducer.class);
@@ -50,9 +50,9 @@ public class RunBayes {
 		trainingJob.setOutputValueClass(IntWritable.class);
 		FileInputFormat.addInputPath(trainingJob, new Path(inputTrainingDataFilePath));
 		FileOutputFormat.setOutputPath(trainingJob, new Path(outputTrainingDataDirtoryPath));
-		trainingJob.waitForCompletion(true) ;*/
+		trainingJob.waitForCompletion(true) ;
 		
-		Bayes.test2(outputTrainingDataFilePath);
+		Bayes.buildMap(outputTrainingDataFilePath);
 		conf = new Configuration();
 		Job testJob = new Job(conf, "test bayes classifier");
 		testJob.setJarByClass(Bayes.class);
